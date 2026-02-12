@@ -1,9 +1,10 @@
 import { useState } from "react";
 import styles from './BookForm.module.css'
-import type { Books } from "../Types/Books";
+import type { NewBook } from "../Types/Books";
+
 
 type Props = {
-    aoEnviar : (Books : Books) => void;
+    aoEnviar: (book: NewBook) => void;
 }
 
 const FormularioLivro = ({ aoEnviar } : Props) => {
@@ -11,14 +12,16 @@ const FormularioLivro = ({ aoEnviar } : Props) => {
     const [titulo, setTitulo] = useState('');
     const [autor, setAutor] = useState('');
     const [descricao, setDescricao] = useState('');
+    const [lido, setLido] = useState(false);
 
     const enviar = (e: React.SyntheticEvent<HTMLFormElement>) =>{
         e.preventDefault();
         if(!titulo || !autor || !descricao) return;
-        aoEnviar({titulo, autor, descricao})
+        aoEnviar({ titulo, autor, descricao, lido })
         setTitulo("");
         setAutor("");
         setDescricao("");
+        setLido(false);
     }
 
     return(
@@ -42,6 +45,14 @@ const FormularioLivro = ({ aoEnviar } : Props) => {
                 value={descricao}
                 onChange={(e) => setDescricao(e.target.value)}
             ></textarea>
+            <label className={styles.checkboxContainer}>
+                <input
+                    type="checkbox"
+                    checked={lido}
+                    onChange={(e) => setLido(e.target.checked)}
+                />
+                Já foi lido
+            </label>
             <button type="submit">Salvar</button>
         </form>
     )

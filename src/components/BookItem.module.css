@@ -1,0 +1,78 @@
+.container{
+    margin: 10px;
+    padding: 10px 5px;
+    border: none;
+    border-radius: 10px;
+
+    width: 280px;
+    min-height: 160px;
+
+    background-color: whitesmoke;
+    color: black;
+
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.content{
+    text-align: left;
+    padding-right: 60px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+
+.autor {
+    margin: 4px 0 12px;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.toggle {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+
+    border: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+
+    background: #222;
+    color: white;
+}
+
+.remove {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+
+    background: #c0392b;
+    color: white;
+}
+
+.lido {
+    font-size: large;
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+.title{
+    font-size: large;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.info {
+  flex: 1;
+  min-width: 0;
+}

@@ -4,9 +4,11 @@ import BookItem from "./BookItem"
 
 type Props = {
     books : Books[];
+    onToggle: (id: string) => void;
+    onRemove: (id: string) => void;
 }
 
-const BookList = ({books} : Props) => {
+const BookList = ({books, onToggle, onRemove } : Props) => {
 
     if(books.length === 0)
         return <p>Nenhum livro foi adicionado ainda!</p>
@@ -14,7 +16,14 @@ const BookList = ({books} : Props) => {
     return(
         <div>
             {
-                books.map(item => (<BookItem key={item._id} books={item}/>))
+                books.map(item => (
+                    <BookItem 
+                        key={item._id} 
+                        books={item} 
+                        onToggle={onToggle}
+                        onRemove={onRemove} 
+                    />
+                ))
             }
         </div>
     )
